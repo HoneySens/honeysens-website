@@ -4,6 +4,9 @@ date: 2018-11-28T15:14:39+10:00
 weight: 1
 ---
 
-## Whisper Theme
+## The HoneySens Project
 
-Whisper is a minimal documentation theme for Hugo. The design and functionality is intentionally minimal. We’re aiming for a similar feel to a Github readme.
+
+HoneySens is a honeypot management platform that supports the deployment of various open source honeypots on a variety of hardware and software architectures. This page is primarily about the freely available [Community Edition](/releases/ce). In case you're interested in professional support, please have a look at the [Enterprise Edition](/releases/enterprise).
+
+The following topics are meant to give an introduction into the HoneySens design goals, architecture, setup procedure and operation. 
