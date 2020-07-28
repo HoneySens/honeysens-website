@@ -4,7 +4,7 @@ date: 2019-02-11T19:27:37+10:00
 weight: 2
 ---
 
-For a first glance on what HoneySens has to offer we prepared a bunch of preconfigured Docker images that can be utilized to quickly set up a demo environment. Please be aware that these images should **never be used in production**! In case you like what you're seeing, please go ahead and work your way through the [Installation Guide](/installation) for instructions on how to set up a proper HoneySens deployment.
+For a first glance on what HoneySens has to offer we prepared a bunch of preconfigured Docker images that can be utilized to quickly set up a demo environment. Please be aware that these images should **never be used in production**! In case you like what you're seeing, please go ahead and work your way through the [Installation Guide](/docs/installation) for instructions on how to set up a proper HoneySens deployment.
 
 The demo environment is composed of preconfigured server containers (one for the API and web interface, another running an internal registry) and one "*dockerized*" sensor, running two simple honeypot services.
 
