@@ -4,7 +4,7 @@ date: 2019-02-24T19:27:37+10:00
 weight: 5
 ---
 
-This document describes the deployment of both dockerized and "physical" sensors. We assume that the [server instance](/docs/installation-server) was set up beforehand and is running properly. Deploying new sensors generally involves the following steps, which will be explained more thoroughly in the following chapters:
+This document describes the deployment of both dockerized and "physical" sensors. We assume that the [server](/docs/installation) was set up beforehand and is running properly. Deploying new sensors generally involves the following steps, which will be explained more thoroughly in the following chapters:
 1. Upload firmware to the server (in case that specific firmware revision hasn't been registred yet): This enables the server to distribute new firmware as update to already attached sensors.
 2. Using the web interface, configure a new sensor and obtain the automatically generated sensor configuration archive.
 3. Perform sensor installation on site (platform-specific).
