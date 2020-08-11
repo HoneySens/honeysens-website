@@ -9,7 +9,7 @@ This document describes the deployment of both dockerized and "physical" sensors
 2. Using the web interface, configure a new sensor and obtain the automatically generated sensor configuration archive.
 3. Perform sensor installation on site (platform-specific).
 
-### Registering Firmware
+### Registering firmware
 As preparation for deployment of new sensors, we first have to upload appropriate firmware to the server. This step is required so that already attached sensors can obtain firmware updates directly from the server, enabling transparent remote updates. In HoneySens terminology, *"firmware"* refers to a software package that contains all necessary components to run a sensor, usually targeting a specific platform. Currently, HoneySens supports two such platforms:
 * **Docker**: *Dockerized* sensors are provided as Docker images which contain all required dependencies and software components to spawn new sensors on most hardware platforms.
 * **BeagleBone Black**: Shortened as *BBB*, these low-cost [development boards](https://beagleboard.org/black) are our representation for "hardware" sensors which can be preconfigured and distributed to any site that wants to include sensors into their networks. They have proven quite reliable and due to remote management capabilities via the HoneySens server can simply be forgotten after initial installation.
@@ -26,7 +26,7 @@ To upload new firmware to the server, log in to the HoneySens web interface and 
 
 Afterwards, the new firmware revision will appear as a new entry in the details for that specific platform (magnifying glass). In case you want to update already registered sensors to a new firmware revision, a button with an arrow icon in the revision list will let you chose another revision as global default. All connected sensors will then perform a firmware update upon their next polling cycle.
 
-### Sensor Configuration
+### Sensor configuration
 In preparation of deployment, each new sensor has first to be registered via the server's web interface. For that, switch to the *Sensors* module in the sidebar and click the *Add* button. A dialogue appears which requires you to specify an initial configuration for the new sensor:
 
 ![sensor-new](/images/sensor-new.png)
