@@ -37,7 +37,7 @@ summaryLength = 30
   homepage_button_link = '/docs'
   homepage_button_text = 'Learn more'
   homepage_image = '/images/architecture.png'
-  mainSections = ["docs", "releases"]
+  mainSections = ["docs", "releases", "misc"]
 
   ## You can enable to add anchor links to header elements
   # enable_anchor_link = true

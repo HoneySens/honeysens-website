@@ -4,7 +4,7 @@ date: 2019-02-24T19:27:37+10:00
 weight: 7
 ---
 
-In its primary role HoneySens sensors act as a early-warning system that provide fake *honeypot services* to attract and report potential network-based attacks, called *events*. This document will show how collected events can be examined and how the event list can be kept clean by filtering out false positives.
+In its primary role HoneySens sensors act as an early-warning system that provide fake *honeypot services* to attract and report potential network-based attacks, called *events*. This document will show how collected events can be examined and how the event list can be kept clean by filtering out false positives.
 
 At this point, we assume a working HoneySens installation with a server and at least one sensor connected to it. For further details, please refer to [Installation](/docs/installation) and [Sensor Deployment](/docs/sensor-deployment).
 
