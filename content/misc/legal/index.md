@@ -1,18 +1,18 @@
 ---
 title: 'Legal Notice'
 date: 2018-11-28T15:14:39+10:00
-weight: 1
+weight: 4
 ---
 
 ### I. Information in accordance with Section 5 TMG
 
 Pascal Brückner \
 Bayreuther Str. 16 \
-01187 Dresden \
+01187 Dresden
 
 ### II. Contact Information
 Telephone: +491623660551 \
-E-Mail: pascal.brueckner@honeysens.org \
+E-Mail: sylence (at) honeysens.org \
 Internet address: https://honeysens.org
 
 ### III. Disclaimer

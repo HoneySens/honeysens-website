@@ -1,7 +1,7 @@
 ---
 title: 'Privacy Policy'
 date: 2018-11-28T15:14:39+10:00
-weight: 1
+weight: 3
 ---
 
 Personal data (usually referred to just as "data" below) will only be processed by us to the extent necessary and for the purpose of providing a functional and user-friendly website, including its contents, and the services offered there.
@@ -18,7 +18,7 @@ Pascal Brückner \
 Bayreuther Straße 17 \
 01187 Dresden \
 Germany \
-E-Mail: legal@honeysens.org
+E-Mail: sylence (at) honeysens.org
 
 ### II. The rights of users and data subjects
 
