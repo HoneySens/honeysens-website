@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.92.1 r15371"
-   sodipodi:docname="favicon.ico.svg"
+   sodipodi:docname="favicon.svg"
    inkscape:export-filename="/home/sylence/projects/HoneySens/honeysens-website/static/favicon.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
@@ -74,7 +74,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -121,6 +121,6 @@
        inkscape:connector-curvature="0"
        id="path6435"
        d="m 1203.1093,670.99277 c 8.0115,-0.65153 16.0233,-0.66272 24.0349,0 v 11.41538 c 0,8.06856 -6.5452,10.14364 -12.0175,12.01619 -5.5449,-1.76296 -12.0174,-3.92036 -12.0174,-12.01619 z"
-       style="fill:none;fill-opacity:0;fill-rule:evenodd;stroke:#d9230f;stroke-width:5.90624762;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:none;fill-opacity:0;fill-rule:evenodd;stroke:#ef2929;stroke-width:5.90624762;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   </g>
 </svg>

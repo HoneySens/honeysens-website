@@ -14,8 +14,8 @@
    viewBox="0 0 344.23682 40.259213"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="honeysens-wortmarke-path.svg"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="logo.svg"
    inkscape:export-filename="/home/sylence/honeysens-logo.png"
    inkscape:export-xdpi="640.16425"
    inkscape:export-ydpi="640.16425">
@@ -36,10 +36,10 @@
      showgrid="true"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1886"
-     inkscape:window-height="1142"
-     inkscape:window-x="1695"
-     inkscape:window-y="39"
+     inkscape:window-width="1920"
+     inkscape:window-height="1054"
+     inkscape:window-x="1920"
+     inkscape:window-y="458"
      inkscape:window-maximized="0"
      inkscape:snap-nodes="true"
      inkscape:snap-global="true"
@@ -57,11 +57,13 @@
     <sodipodi:guide
        position="54.879426,40.180469"
        orientation="0,1"
-       id="guide4925" />
+       id="guide4925"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="79.879386,0.18049028"
        orientation="0,1"
-       id="guide4927" />
+       id="guide4927"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -71,7 +73,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -82,37 +84,38 @@
      transform="translate(-1200.1205,-657.28348)">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="30"
        y="362.36221"
-       id="text3348"
-       sodipodi:linespacing="125%"><tspan
+       id="text3348"><tspan
          sodipodi:role="line"
          id="tspan3350"
          x="30"
-         y="362.36221" /></text>
+         y="362.36221"
+         style="font-size:40px;line-height:1.25;font-family:sans-serif"> </tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="-362.73264"
        y="588.75684"
-       id="text3348-3"
-       sodipodi:linespacing="125%"><tspan
+       id="text3348-3"><tspan
          sodipodi:role="line"
          id="tspan3350-0"
          x="-362.73264"
-         y="588.75684" /></text>
+         y="588.75684"
+         style="font-size:40px;line-height:1.25;font-family:sans-serif"> </tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot3940"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"><flowRegion
+       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"><flowRegion
          id="flowRegion3942"><rect
            id="rect3944"
            width="1040"
            height="320"
            x="-159.80243"
            y="138.3773" /></flowRegion><flowPara
-         id="flowPara3946" /></flowRoot>    <g
+         id="flowPara3946"
+         style="font-size:40px;line-height:1.25"> </flowPara></flowRoot>    <g
        style="font-style:normal;font-weight:normal;font-size:54.61535645px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="text3948">
       <path
@@ -149,7 +152,7 @@
        inkscape:connector-curvature="0"
        id="path6435"
        d="m 1246.3641,662.42032 c 8.654,-0.84209 17.308,-0.85653 25.962,0 l 0,14.75405 c 0,10.42838 -7.07,13.11038 -12.981,15.53059 -5.9895,-2.27857 -12.981,-5.06693 -12.981,-15.53059 z"
-       style="fill:none;fill-opacity:0;fill-rule:evenodd;stroke:#d9230f;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:none;fill-opacity:0;fill-rule:evenodd;stroke:#ef2929;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <g
        style="font-style:normal;font-weight:normal;font-size:54.61535645px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="text5741">
