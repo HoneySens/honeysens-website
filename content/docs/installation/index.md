@@ -1,6 +1,6 @@
 ---
 title: 'Installation'
-date: 2019-02-24T19:27:37+10:00
+date: 2020-08-13
 weight: 4
 ---
 
@@ -38,7 +38,7 @@ honeysens:
     #- <path to https.chain.crt>:/opt/HoneySens/data/https.chain.crt
     #- <path to https.key>:/opt/HoneySens/data/https.key
 ~~~
-That container bundles all essential components, including a database and a job queue. In the future, those will be separated into their own containers. For now, focus on the `volumes` section. By default, volumes will be mounted into the container at `/opt/HoneySens/data` (for uploads and configuation data) and `/var/lib/mysql` (the database). The labels `honeysens_data` and `honeysens_db` refer to the [named volumes](https://success.docker.com/article/different-types-of-volumes) as defined in the `volumes` section further below. Named volumes generally have the drawback that their contents are by default stored somewhere in `/var/lib/docker` (this depends on the specific flavour of Linux). However, many operators prefer to use a specific predetermined location instead, such as `/srv/honeysens/`. To accomplish that, modify the volume statements accordingly, e.g.
+That container bundles all essential components, including a database and a job queue. In the future, those will be separated into their own containers. For now, focus on the `volumes` section. By default, volumes will be mounted into the container at `/opt/HoneySens/data` (for uploads and configuation data) and `/var/lib/mysql` (the database). The labels `honeysens_data` and `honeysens_db` refer to the [named volumes](https://success.docker.com/article/different-types-of-volumes) as defined in the `volumes` section further below. Named volumes generally have the drawback that their contents are by default stored somewhere in `/var/lib/docker` (this depends on the specific flavor of Linux). However, many operators prefer to use a specific predetermined location instead, such as `/srv/honeysens/`. To accomplish that, modify the volume statements accordingly, e.g.
 ~~~
   volumes:
     - /srv/honeysens/data:/opt/HoneySens/data

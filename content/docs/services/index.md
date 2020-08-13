@@ -1,10 +1,10 @@
 ---
 title: 'Services'
-date: 2019-02-24T19:27:37+10:00
+date: 2020-08-13
 weight: 6
 ---
 
-A sensor by itself doesn't perform any tasks other than regularly polling the server for configuration updates. To gain value from a sensor, operators have to deploy *services* to add custom functionality. Since HoneySens is all about building and maintaining a deception network, those services typically offer honeypot functionalities. More specifically, they are adaptions of popular OpenSource honeypot projects. HoneySens is essentially the glue that enables operators to seamlessly integrate those honeypots into their network. This documents describes how to manage the service repository on a HoneySens server as well as how to deploy honeypots to sensors. We assume that a [server](/docs/installation) with at least one attached [sensor](/docs/sensors) was set up beforehand.
+A sensor by itself doesn't perform any tasks other than regularly polling the server for configuration updates. To gain value from a sensor, operators have to deploy *services* to add custom functionality. Since HoneySens is all about building and maintaining a deception network, those services typically offer honeypot functionalities. More specifically, they are adaptions of popular open source honeypot projects. HoneySens is essentially the glue that enables operators to seamlessly integrate those honeypots into their network. This documents describes how to manage the service repository on a HoneySens server as well as how to deploy honeypots to sensors. We assume that a [server](/docs/installation) with at least one attached [sensor](/docs/sensors) was set up beforehand.
 
 ### The service repository
 All services that are to be deployed on sensors have to be registered on the HoneySens server first. The underlying idea is to reduce the administrative overhead for operators that want to launch new honeypots on a sensor to just a few clicks. For that, the server transparently exposes an integrated service repository (that is just an ordinary Docker repository) to its sensors, which in turn can use standardized Docker infrastructure to execute containerized services.
