@@ -10,7 +10,7 @@ HoneySens was originally created as a diploma thesis at the [Technische Universi
 To access publications related to the project, click [here](/misc/publications).
 
 ### Contact
-To this day, HoneySens is maintained by Pascal Brückner and [T-Systems Multimedia Solutions](https://www.t-systems-mms.com/). For inquiries about the OpenSource project HoneySens CE, contact me via E-Mail: \
+To this day, HoneySens is maintained by Pascal Brückner and [T-Systems Multimedia Solutions](https://www.t-systems-mms.com/). For inquiries about the open source project HoneySens CE, contact me via E-Mail: \
  *sylence (at) honeysens.org*.
 
 ### Website
