@@ -1,4 +1,4 @@
-baseURL = "www.example.com"
+baseURL = "https://honeysens.org/"
 languageCode = "en-us"
 title = "HoneySens"
 themesDir = "themes"
@@ -40,18 +40,18 @@ summaryLength = 30
   mainSections = ["docs", "releases", "misc"]
 
   ## You can enable to add anchor links to header elements
-  # enable_anchor_link = true
+  enable_anchor_link = true
 
   [params.homepage_meta_tags]
-    meta_description = "Hugo Whisper is a documentation theme built with Hugo."
-    meta_og_title = "Hugo Whisper Theme"
+    meta_description = "An open platform to deploy and manage honeypots on a variety of hardware and software architectures"
+    meta_og_title = "HoneySens"
     meta_og_type = "website"
-    meta_og_url = "https://hugo-whisper.netlify.com"
-    meta_og_image = "https://raw.githubusercontent.com/JugglerX/hugo-whisper-theme/master/images/tn.png"
-    meta_og_description = "Hugo Whisper is a documentation theme built with Hugo."
-    meta_twitter_card = "summary"
-    meta_twitter_site = "@zerostaticio"
-    meta_twitter_creator = "@zerostaticio"
+    meta_og_url = "https://honeysens.org/"
+    meta_og_image = "https://honeysens.org/images/logo.svg"
+    meta_og_description = "An open platform to deploy and manage honeypots on a variety of hardware and software architectures"
+    #meta_twitter_card = "summary"
+    meta_twitter_site = ""
+    meta_twitter_creator = ""
 
   [params.logo]
       mobile = "/images/logo.svg"

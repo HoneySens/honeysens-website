@@ -6,7 +6,16 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>{{ block "title" . }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {{ block "meta_tags" . }}{{end}}
+  <meta name="description" content="{{ .Site.Params.homepage_meta_tags.meta_description }}" />
+  <meta name="author" content="Pascal Brückner" />
+  <meta property="og:title" content="{{ .Site.Params.homepage_meta_tags.meta_og_title }}" />
+  <meta property="og:type" content="{{ .Site.Params.homepage_meta_tags.meta_og_type }}" />
+  <meta property="og:url" content="{{ .Site.Params.homepage_meta_tags.meta_og_url }}" />
+  <meta property="og:image" content="{{ .Site.Params.homepage_meta_tags.meta_og_image }}" />
+  <meta property="og:description" content="{{ .Site.Params.homepage_meta_tags.meta_og_description }}" />
+  {{if .Site.Params.homepage_meta_tags.meta_twitter_card}}<meta name="twitter:card" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_card }}" />{{ end }}
+  {{ if .Site.Params.homepage_meta_tags.meta_twitter_site}}<meta name="twitter:site" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_site }}" />{{ end }}
+  {{ if .Site.Params.homepage_meta_tags.meta_twitter_creator}}<meta name="twitter:creator" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_creator }}" />{{ end }}
   <link rel="icon" href="{{ "favicon.png" | absURL}}">
 
   {{ if .Site.IsServer }}
