@@ -41,7 +41,7 @@ services:
     privileged: true
 
 networks:
-  honeysens
+  honeysens:
 ```
 This file defines a Compose project out of three containers, which constitute a minimal working HoneySens deployment. In a real configuration, the sensor(s) would not run alongside the server, but would be deployed within various production networks that should be monitored. In this demo case, however, we deploy both of them together to illustrate their basic functionality. All three images are preconfigured so that the sensor is already registered on the server and some basic honeypot services can be immediately deployed to it right after it starts. The `ports` directive of the server container forwards your local TCP ports 80 (`HTTP`) and 443 (`HTTPS`) to the HoneySens web interface. In case those ports are already taken by other applications, feel free to change those. Since all containers are run within their own user-defined network (called `honeysens` here), they shouldn't interfere with other applications or containers.
 
@@ -59,7 +59,7 @@ We'll now have a look at a few important modules one will frequently come in con
 
 ![demo-sensors](/images/demo-sensors.png)
 
-The demo environment comes with a single sensor attached to it, which is called simply *sensor1*, reports the IP address `192.168.32.4` and has two honeypot services enabled: *cowrie*  and *recon*. By default, sensors poll the server every five minutes to send status reports and update their own configuration. According to the *Status* column in the screenshot, our sensor did its last polling successfully one minute ago and is healthy, as indicated by the green cell color. The columns with angled text show which honeypot services are enabled on which sensors: In our case, both services are active and running. If you see a blue background here, the services aren't ready yet (they will be automatically deployed to the sensor on startup). In that case, simply wait a few minutes until the boxes turn green. Obviously, red background color indicates that something has gone wrong.
+The demo environment ships with a single sensor attached to it, which is called *sensor1*. In the screenshot above, it reports the IP address `192.168.32.4` and has two honeypot services enabled: *cowrie*  and *recon*. If your sensor is still shown with a *Timeout* or it's online but the two service columns are shown in blue, don't worry: The sensor needs a couple of minutes to connect to the server and start its honeypot services. After roughly five minutes, your sensor list should look identical to the one above. By default, sensors poll the server every five minutes to send status reports and update their own configuration. According to the *Status* column in the screenshot, our sensor did its last polling successfully one minute ago and is healthy, as indicated by the green cell color. The columns with angled text show which honeypot services are enabled on which sensors: In our case, both services are active and running. If you see a blue background here, the services aren't ready yet (they will be automatically deployed to the sensor on startup). In that case, simply wait a few minutes until the boxes turn green. Obviously, red background color indicates that something has gone wrong.
 
 Now, click on the pencil icon within the *Actions* column to show the current sensor configuration. This ranges from basic settings such as sensor name, location and group assignment to the server connection, update interval and sensor network configuration to more advanced topics such as proxy traversal or custom sensor firmware settings. For now, simply close the dialogue via *Cancel*.
 
@@ -125,6 +125,9 @@ In a similar vein, the SSH event doesn't list individual packets, but instead th
 ![demo-ssh-event](/images/demo-ssh-event.png)
 
 Here, we clearly see how the connection was initiated, a login as root without password succeeded, followed by a few shell commands.
+
+### Cleaning up
+After you're done exploring the demo environment, issue the `Strg+C` key combination in the terminal where you launched the demo with `docker-compose up` previously. This will stop all demo containers, but won't immediately remove them (so that you could start them back up again later). To get rid of the containers themselves, simply execute `docker-compose down` afterwards.
 
 ### Next steps
 That concludes our short tour through the demo system. Even though you should **never run the demo containers in a production environment**, it's still a fully functional deployment that can be useful for toying around with. You can upload firmware, add additional sensors and services. There are also a few more features that assist in day-to-day honeypot operation, such as the ability to whitelist recurring (harmless) events via the *Filter* module as well as E-Mail notifications for events.
