@@ -8,7 +8,9 @@ The Community Edition (CE) is periodically updated, licensed under Apache 2.0 an
 
 ### HoneySens CE 20.01
 
-This release streamlines the management of honeypot services, event filtering and sorting and adds support for dockerized sensors.
+This release streamlines the management of honeypot services, event filtering and sorting and adds support for dockerized sensors. 
+
+To verify downloads, please also review their MD5 [checksums](/download/releases/20.01.01/md5sums).
 
 ###### Server
 The [server distribution](/download/releases/20.01.01/HoneySens-CE-Server-20.01.01.tar.gz) contains a Docker Compose file as well as prebuilt Docker images for operating a HoneySens server. The images can be loaded with `docker load -i <file`.
