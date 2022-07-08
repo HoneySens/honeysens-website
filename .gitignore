@@ -3,5 +3,6 @@
 *.iml
 
 # Build artifacts
-build
+.hugo_build.lock
+public
 resources

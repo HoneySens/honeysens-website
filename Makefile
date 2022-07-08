@@ -1,15 +1,8 @@
-OUTDIR := build
+dist:
+	docker run --rm -ti -w /srv -v $(shell pwd):/srv alpine:3.15 /bin/sh -c 'adduser -D -u $(shell id -u) user && apk add hugo && su -c "hugo" user'
 
-up: ${OUTDIR}/utils/docker-compose
-	${OUTDIR}/utils/docker-compose up || true
+dev:
+	docker run --rm -ti -p 8080:8080 -w /srv -v $(shell pwd):/srv alpine:3.15 /bin/sh -c 'adduser -D -u $(shell id -u) user && apk add hugo && su -c "hugo serve -b http://localhost:8080 -p 8080 --bind 0.0.0.0" user'
 
-dist: ${OUTDIR}/utils/docker-compose
-	${OUTDIR}/utils/docker-compose run hugo sh -c "hugo -D -d build/dist/ && chown -R $$(id -u):$$(id -g) build/dist/"
-
-${OUTDIR}/utils/docker-compose: | DIR.${OUTDIR}/utils
-	curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$$(uname -s)-$$(uname -m)" -o $@
-	chmod +x $@
-	$@ --version
-
-DIR.${OUTDIR}/%:
-	mkdir -p $(@:DIR.%=%)
+clean:
+	rm -vfr public resources .hugo_build.lock
