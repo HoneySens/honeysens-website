@@ -1,6 +1,6 @@
 ---
 title: 'Enterprise Edition'
-date: 2020-08-13
+date: 2025-02-28
 weight: 1
 ---
 
@@ -8,95 +8,120 @@ The commercial edition is available from [T-Systems Multimedia Solutions](https:
 
 ### Changelog
 
+###### 2.8.0
+Released in December 2024
+* Backend migration to PHP8
+* Revision of all API authorization checks
+
+###### 2.7.0
+Released in January 2024
+* Rudimentary system load monitoring to address issues during high utilization
+* Distribution of e-mail notifications in case of high system load
+* Improved performance when retrieving event data
+* Fixed various permission-related bugs
+* Fixed issues related to the renewal of self-signed TLS certificates
+
+###### 2.6.1
+Released in May 2023
+* Added configuration option to limit the number of task worker processes
+
+###### 2.6.0
+Released in December 2022
+* Added sensor configuration download to sensor overview
+* Automatic detection of expired user sessions or loss of connection to the server
+* Revised optional permission restrictions for the Manager role
+* Added group membership info and e-mail addresses to user details
+* Numerous UI bug fixes, specifically for the presentation of tooltips and service labels
+
 ###### 2.5.0
 Released in May 2022
-* Unprivilegierte Server-Container für den sicheren Betrieb als orchestrierter Microservice
-* TLS-Client-Authentifizierung für Sensoren entfernt und durch HMAC als Standardverfahren ersetzt
-* Unterstützung für TLS 1.3
+* Unprivileged server containers for secure operation as an orchestrated microservice
+* Removed TLS client authentication for sensors - replaced by HMAC as default
+* Support for TLS 1.3
 
 ###### 2.4.0
 Released in April 2022
-* **Brücken-Release**: Mindestvoraussetzung für Updates auf spätere Revisionen
-* Ereignisarchiv für die Langzeitaufbewahrung von Ereignisdaten
-* Individualisierbare E-Mail-Templates für alle automatisch versandten Systemnachrichten
-* Ereignisfilter können nun gezielt aktiviert/deaktiviert werden
-* Visualisierung neu eintreffender Ereignisse mittels Zähler in der Sidebar
-* Status-Filter der Ereignisliste um häufig benötigte Kombinationen erweitert
-* Spalte mit Gruppenzuordnung zur Ereignis-, Filter- und Sensor-Übersichten hinzugefügt
-* Übersichts-Statusanzeige in Dienste-Verzeichnis integriert
-* Der zum DHCP-Server gesendete Hostname ist nun optional und frei wählbar
-* Dialoge überarbeitet, bspw. listet der "Firmware Entfernen"-Dialog jetzt betroffene Sensoren auf, die nicht den Systemstandard nutzen
-* E-Mail-Benachrichtigungen über Verbindungsversuch-Ereignisse beinhalten nun eine Paketübersicht
-* Passwortänderung bei nächstem oder erstmaligen Login erzwingbar
-* Administrative E-Mail-Adresse als Pflichtfeld für Neuinstallationen eingefügt
-* Prozess zum Einbinden eigener TLS-Zertifikate für die Kompatibilität mit alternativen Container-Runtimes überarbeitet
-* Fehlerkorrekturen in Front- und Backend, speziell in den Bereichen Session-Handling, Caching und serverseitive Validierung
-* Sensor-Authentifikation via HMAC
+* **Bridge Release**: Base requirement for updates to later revisions
+* Event archive for the long-term storage of event data
+* Customizable e-mail templates for automatically distributed system messages
+* Event filters can now be activated/deactivated
+* Visualization of new incoming events by means of a counter in the sidebar
+* Extended event list status filter to include frequently required status combinations
+* Added column with group assignment to the event, filter and sensor overviews
+* Integrated status display in services overview
+* The host name sent to the DHCP server is now optional and freely selectable
+* Dialogs revised, e.g. the 'Remove firmware' dialog now lists affected sensors that do not run the global standard firmware
+* E-mail notifications about connection attempt events now include a package overview
+* Password change enforceable at next or first login
+* Added administrative e-mail address as mandatory field for new deployment
+* Process for integrating own TLS certificates revised for compatibility with alternative container runtimes
+* Bugfixes in frontend and backend, specifically in the areas of session handling, caching and server-side validation
+* Sensor authentication via HMAC
 
 ###### 2.3.0
 Released in June 2021
-* Serverseitiges Tracking des Sensor-Zustands, Darstellung von Up-/Downtime entsprechend angepasst
-* Ereignisbenachrichtigungen um Notifikationen bei Sensor-Timeouts und CA-Zertifikatsablauf erweitert
-* Ereignisliste um Status-Filter und Zähler für neue Ereignisse (pro Sensor) ergänzt
-* Funktionen zum simultanen Bearbeiten und Entfernen aller Ereignisse der Ereignisliste
-* Optional aktivierbares API-Aktitätslog für Administratoren
-* Beschreibungs-Freitextfeld für Whitelist-Einträge hinzugefügt
-* Sonderbrechtigungen um zusätzliche Pflichtfelder erweitert
-* Fehlerkorrekturen im Front- und Backend, insbesondere im Zusammenhang mit Privilegien und Filterkriterien
+* Server-side sensor status tracking; up/downtime status display adapted accordingly
+* Event notifications extended to include notifications for sensor timeouts and CA certificate expirations
+* Event list supplemented with status filter and counter for new events (per sensor)
+* Added functions for simultaneously editing and removing all events in the event list
+* Optional API activity log for administrators
+* Added description field for whitelist entries
+* Special permissions extended with additional mandatory fields
+* Error corrections in frontend and backend, especially in relation to privileges and event filters
 
 ###### 2.2.0 
 Released in August 2020
-* Umfassendes und bei Bedarf vollautomatisches Backupkonzept integriert
-* Unterstützung von EAPOL/IEEE802.1X-Authentifizierung für Sensoren (Beta-Status)
-* Unterstützung der automatischen Ereignisweiterleitung an externe Syslog-Server implementiert
-* Ereignisbearbeitung in separaten Dialog ausgelagert
-* Komponentenaufteilung überarbeitet: Datenbank, Hintergrundprozesse und Backups separiert
-* Zahlreiche Härtungsmaßnahmen innerhalb der Webanwendung umgesetzt
+* Integrated comprehensive fully automated backup system
+* Support for EAPOL/IEEE802.1X authentication for sensors (beta status)
+* Implemented support for automatic event forwarding to external syslog servers
+* Moved event processing to a separate dialog
+* Component division revised: Database, background processes and backups separated
+* Implemented numerous hardening measures within the web application
 
 ###### 2.1.0 
 Released in August 2019
-* Ereignisse können im CSV-Format exportiert werden
-* Nutzerauthentifikation über einen externen LDAP-Verzeichnisdienst ist nun möglich
-* Prozessverwaltung zur Visualisierung von Hintergrundprozessen fü Benutzer integriert
-* Hashverfahren für Nutzerpasswörter aktualisiert
-* Manuelles Aktualisieren der Konfiguration nach Updates ist nicht mehr notwendig
-* Sidebar kann nun auf Wunsch dauerhaft ausgeklappt werden
-* Option zur Restriktion von Benutzerrollen hinzugefügt
-* Verhalten zahlreicher Formulare im Web-Frontend vereinheitlich
+* Events can be exported in CSV format
+* Support user authentication via an external LDAP directory service
+* Integrated process management for visualization of user background processes
+* Updated hashing method for user passwords
+* Manual configuration update after system updates is no longer necessary
+* Sidebar can now be permanently collapsed
+* Added options to restrict user roles
+* Standardized behavior of numerous web frontend forms
 
 ###### 2.0.0
 Released in May 2019
-* Zusätzliche Such-, Filter und Sortierfunktionen für die Ereignisübersicht
-* Interner Netzbereich für Honeypot-Services ist nun frei definierbar
-* Überarbeitung der clientseitigen Formularvalidierung
-* Status von Diensten wird nun in der Sensorübersicht dargestellt
-* Wartungs-Kurzdoku ist nun Teil der Server-Distribution
-* Firmware-Release-Notes im Frontend hinterlegt
-* Unzählige Fehlerkorrekturen in Front- und Backend
+* Additional search, filter and sort functions in the event overview
+* Internal network range for honeypot services is now freely definable
+* Client-side form validation revised
+* Status of services is now shown in the sensor overview
+* Short maintenance documentation integrated into the server distribution archive
+* Firmware release notes added to the frontend
+* Countless bug fixes in the frontend and backend
 
 ###### 1.0.4
 Released in March 2019
-* Dienste-Refkonfiguration in der Sensorübersicht ist jetzt global sperrbar
-* Fehlerkorrektur im Zusammenhang mit dem automatischen Mailversand
+* Services reconfiguration in the sensor overview can now be locked
+* Automatic e-mail dispatch bugfixes
 
 ###### 1.0.3
 Released in February 2019
-* Anpassung des Impressums
+* Imprint adjustments
 
 ###### 1.0.2
 Released in January 2019
-* Verfahren zur Verlängerung der Zertifikatinfrastruktur hinzugefügt
-* Mail-Konfiguration erlaubt nun die freie Bestimmung des zu nutzenden SMTP-Ports
-* Impressum und Datenschutzerklärung eingebunden
-* Dokumentation aktualisiert
+* Added procedure for renewing the certificate infrastructure
+* Mail configuration now allows free determination of the SMTP port to use
+* Integrated imprint and privacy policy
+* Documentation updated
 
 ###### 1.0.1
-* Umstellung der Zertifikate auf SHA-256
-* Erweiterung der Ansicht für Beobachter um Ereigniskommentare und Sensorkonfiguration
-* verschiedene Darstellungsfehler im Frontend sowie mehrere kleinere Fehler behoben
+* Conversion of certificates to use SHA-256
+* Observer UI expanded to include event comments and sensor configuration
+* Fixed various display errors in the frontend and several minor bugs
 
 ###### 1.0.0
-* Unterstützung für Orchestrierungsdienste, unzählige Bugfixes und Detailverbesserungen
+* Support for orchestration services, countless bug fixes and detail improvements
 
 ###### 0.9.0
-* Umsetzung der Multi-Plattform- und Multi-Service-Konzepte
+* Implementation of multi-platform and multi-service concepts
