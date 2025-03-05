@@ -6,10 +6,10 @@ weight: 2
 
 For a first glance on what HoneySens has to offer we prepared a bunch of preconfigured Docker images that can be utilized to quickly set up a demo environment. Please be aware that these images should **never be used in production**! In case you like what you're seeing, please go ahead and work your way through the [Installation Guide](/docs/installation) for instructions on how to set up a proper HoneySens deployment.
 
-The demo environment is composed of server containers (one for the API and web interface, another running an internal registry) and one "*dockerized*" sensor, running two simple honeypot services.
+The demo environment is composed of several server containers and one "*dockerized*" sensor, running two basic honeypot services.
 
 ### Requirements
-The demo is offered as a bunch of Docker images which were published on [Docker Hub](https://hub.docker.com/u/honeysens/). To run it, any Linux distribution and a recent version of [Docker Engine](https://docs.docker.com/engine/) are required. Please make sure that those are installed, e.g. by verifying the output of `docker version`, which prints details about the installed Docker components.
+The demo is offered as a bunch of Docker images which are published on [Docker Hub](https://hub.docker.com/u/honeysens/). To run it, any Linux distribution and a recent version of [Docker Engine](https://docs.docker.com/engine/) are required. Please make sure that those are installed, e.g. by verifying the output of `docker version`, which prints details about the installed Docker components.
 
 ### Preparing a Compose File
 Next, switch to an empty directory and create a new Compose file named `docker-compose.yml` with the following contents:
