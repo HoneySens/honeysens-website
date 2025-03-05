@@ -134,3 +134,5 @@ Released in January 2019
 
 ###### 0.9.0
 * Implementation of multi-platform and multi-service concepts
+
+[[Top]](#top)
