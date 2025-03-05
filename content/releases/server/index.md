@@ -1,13 +1,22 @@
 ---
-title: 'Enterprise Edition'
-date: 2025-02-28
+title: 'Server'
+date: 2025-03-04
 weight: 1
 ---
 
-The commercial edition is available from [T-Systems Multimedia Solutions](https://www.honeysens.de/).
+A HoneySens server is composed of multiple containerized services. These can be either downloaded here or from a public container registry.
+
+<!--more-->
+Latest release: **2.8.0**  
+Latest build: **20241218**
+
+New builds are created from time to time to address potential vulnerabilities in 3rd party dependencies. All builds of a single release are identical feature-wise.
+
+Click [here](/download/releases/HoneySens-Server-2.8.0-20241218.tar.gz) (SHA1 `d728f9b144b3efc9187eee82c850bc1fd11fa49d`) to download the server distribution, which contains a Docker Compose file as well as prebuilt project-specific images for deploying a HoneySens server. Follow the [installation docs](/docs/installation/) for further instructions. Some additional third party dependencies such as Redis or MySQL are not contained in this archive and will be downloaded from a public container registry automatically upon initiating the deployment.
+
+Alternatively, all images can be obtained automatically from public container registries. To go that route, download our [docker-compose.yml](/download/releases/docker-compose.yml) and follow the *Configuration* and *Startup* steps in the [installation docs](/docs/installation/#configuration).
 
 ### Changelog
-
 ###### 2.8.0
 Released in December 2024
 * Backend migration to PHP8
@@ -69,7 +78,7 @@ Released in June 2021
 * Special permissions extended with additional mandatory fields
 * Error corrections in frontend and backend, especially in relation to privileges and event filters
 
-###### 2.2.0 
+###### 2.2.0
 Released in August 2020
 * Integrated comprehensive fully automated backup system
 * Support for EAPOL/IEEE802.1X authentication for sensors (beta status)
@@ -78,7 +87,7 @@ Released in August 2020
 * Component division revised: Database, background processes and backups separated
 * Implemented numerous hardening measures within the web application
 
-###### 2.1.0 
+###### 2.1.0
 Released in August 2019
 * Events can be exported in CSV format
 * Support user authentication via an external LDAP directory service

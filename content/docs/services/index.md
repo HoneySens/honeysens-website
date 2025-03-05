@@ -1,6 +1,6 @@
 ---
 title: 'Services'
-date: 2020-08-13
+date: 2025-03-04
 weight: 6
 ---
 
@@ -38,13 +38,7 @@ By default, the service matrix is read-only. To modify service assignments, clic
 
 ![services-matrix](/images/services-matrix.png)
 
-### Service list
-Currently, the HoneySens Community Edition offers a rather limited selection of services. However, we're actively working on improving the situation and also encourage the community to submit additional services. Consult the table below for an overview over available services that can be downloaded from the CE [releases](/releases/ce) page.
-
-| Name         | Description                                                                                                                                     | Website                                           |
-| :----------- | :---------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------     |
-| Recon        | Recon is a small daemon that responds to and logs any incoming TCP or UDP request on arbitrary ports.                                           | (part of the HoneySens project)                   |
-| Cowrie       | Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker. | [on GitHub](https://github.com/cowrie/cowrie)     |
-| Dionaea      | Dionaea is a low interaction honeypot with support for various protocols, notably SMB.                                                          | [on GitHub](https://github.com/DinoTools/dionaea) |
+### Supported services
+Consult the [Service Releases](/releases/services/) page for a short overview of available services that have been adapted to HoneySens and can be downloaded right there. Refer to the [service matrix](https://github.com/HoneySens/honeysens/tree/master/sensor/services) within the project repository for further technical details.
 
 [[Top]](#top)
