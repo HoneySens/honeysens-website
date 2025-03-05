@@ -40,7 +40,7 @@ By the way, our sensors don't come with default root CA bundles preinstalled. In
 ### Hardware and software requirements
 Simplification of deployment and management was a primary design goal for HoneySens, but there are still certain requirements for the underlying hard- and software platforms that are used for server and sensor deployments. We heavily leverage recent trends of containerization, resulting in most components running in [Docker](https://www.docker.com/) containers under Linux. The benefit of that being clearly that requirements to run a server can be summarized as:
 * Any Linux distribution with a kernel >= 3.10, ideally one which ships prebuilt Docker [packages](https://docs.docker.com/engine/install/)
-* A recent distribution of [Docker Engine](https://docs.docker.com/engine/) and [Docker Compose](https://docs.docker.com/compose/install/)
+* A recent distribution of [Docker Engine](https://docs.docker.com/engine/)
 
 The server is essentially composed of a web application, a job queue and a database. Actual hardware requirements mostly depend on the number of connected sensors and concurrent users of the web interface. We recommend to start with a small virtual environment and to scale resources in accordance with the observed load. In addition to recording all events reported by sensors (each one is up to a few KB in size), the server also stores service templates and firmware images, which typically comprise a couple of hundred MBs up to a few GBs. If you expect a lot of events, generous disk space allocation could be beneficial.
 

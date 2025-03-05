@@ -9,7 +9,7 @@ For a first glance on what HoneySens has to offer we prepared a bunch of preconf
 The demo environment is composed of server containers (one for the API and web interface, another running an internal registry) and one "*dockerized*" sensor, running two simple honeypot services.
 
 ### Requirements
-The demo is offered as a bunch of Docker images which were published on [Docker Hub](https://hub.docker.com/u/honeysens/). To run it, any Linux distribution and recent versions of [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) are required. Please make sure that those are installed, e.g. by looking at the output of `docker version` and `docker-compose version`, which both should list details about the installed Docker binaries.
+The demo is offered as a bunch of Docker images which were published on [Docker Hub](https://hub.docker.com/u/honeysens/). To run it, any Linux distribution and a recent version of [Docker Engine](https://docs.docker.com/engine/) are required. Please make sure that those are installed, e.g. by verifying the output of `docker version`, which prints details about the installed Docker components.
 
 ### Preparing a Compose File
 Next, switch to an empty directory and create a new Compose file named `docker-compose.yml` with the following contents:
@@ -48,7 +48,7 @@ This file defines a Compose project out of three containers, which constitute a 
 **Note**: The sensor requires the `privileged` attribute for proper operation. The reason for that is that the honeypot services are deployed as Docker containers as well, which leads to a nested Docker-in-Docker setup. To run another Docker daemon within an existing Docker container, extended privileges are required.
 
 ### Starting the demo environment
-From the same directory the aforementioned project file `docker-compose.yml` was created in, the demo environment can be brought up with `docker-compose up`. After a few seconds (as soon as the amount of console output starts to slow down), all required components should be ready and you can access the web interface via [https://localhost](https://localhost) (or `https://localhost:<port>` in case you modified the default port configuration). If nothing wrent wrong, you should be greeted by the login screen:
+From the same directory the aforementioned project file `docker-compose.yml` was created in, the demo environment can be brought up with `docker compose up`. After a few seconds (as soon as the amount of console output starts to slow down), all required components should be ready and you can access the web interface via [https://localhost](https://localhost) (or `https://localhost:<port>` in case you modified the default port configuration). If nothing wrent wrong, you should be greeted by the login screen:
 
 ![demo-login](/images/demo-login.png)
 
@@ -127,7 +127,7 @@ In a similar vein, the SSH event doesn't list individual packets, but instead th
 Here, we clearly see how the connection was initiated, a login as root without password succeeded, followed by a few shell commands.
 
 ### Cleaning up
-After you're done exploring the demo environment, issue the `Strg+C` key combination in the terminal where you launched the demo with `docker-compose up` previously. This will stop all demo containers, but won't immediately remove them (so that you could start them back up again later). To get rid of the containers themselves, simply execute `docker-compose down` afterwards.
+After you're done exploring the demo environment, issue the `Strg+C` key combination in the terminal where you launched the demo with `docker compose up` previously. This will stop all demo containers, but won't immediately remove them (so that you could start them back up again later). To get rid of the containers themselves, simply execute `docker compose down` afterwards.
 
 ### Next steps
 That concludes our short tour through the demo system. Even though you should **never run the demo containers in a production environment**, it's still a fully functional deployment that can be useful for toying around with. You can upload firmware, add additional sensors and services. There are also a few more features that assist in day-to-day honeypot operation, such as the ability to whitelist recurring (harmless) events via the *Filter* module as well as E-Mail notifications for events.

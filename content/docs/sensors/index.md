@@ -60,7 +60,7 @@ After you've obtained the configuration archive and a firmware image, click *Clo
 The last step remaining is to install the sensor on its intended system/location. This step is highly platform-dependent: Please follow the guidelines below that pertain to the chosen sensor platform.
 
 #### Docker
-*Containerized* sensors bundle all required components into a single Docker container, including further nested containers for honeypot services. The main benefit of that platform is that just Docker and Docker Compose are required, which is why any hardware platform that supports running containers is sufficient.
+*Containerized* sensors bundle all required components into a single Docker container, including further nested containers for honeypot services. The main benefit of that platform is that just Docker is required, which is why any hardware platform that supports running containers is sufficient.
 
 To deploy a new containerized sensor, first unpack the firmware bundle - obtained from either a HoneySens server or the [Releases page](/releases/ce) - into a directory of your choice (on the target system). The resulting directory contents should look as follows:
 ~~~
@@ -92,7 +92,7 @@ There are further operational settings that should be looked at within `docker-c
 After `docker-compose.yml` has been prepared, continue with the following steps:
 1. Load the supplied Docker image (in case it's not already registered on the host): `docker load -i firmware.img`
 2. Copy the sensor configuration archive obtained from the server into the `conf/` directory. That directory will be mounted into the sensor container on startup. Make sure that the directory doesn't contain any other files or directories except the configuration archive.
-3. Start the sensor: `HOST_PWD=$(pwd) docker-compose up -d` (omit `-d` to dump logging output to the terminal)
+3. Start the sensor: `HOST_PWD=$(pwd) docker compose up -d` (omit `-d` to dump logging output to the terminal)
 
 #### BeagleBone Black
 The [BeagleBone Black](https://beagleboard.org/black) (*BBB*) is a small and inexpensive computing board that's recommended in case sensors should be deployed on actual hardware and put somewhere physically. They ship with 4GB of internal eMMC storage, which has proven to be quite reliable. That's why in practice these sensors are typically deployed in a sort of "fire and forget" fashion: Once installed and connected to the server, they can be managed through the web interface and typically not touched again for a long time.
