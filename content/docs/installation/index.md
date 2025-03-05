@@ -6,7 +6,7 @@ weight: 4
 
 This section describes the initial steps necessary to deploy HoneySens in your IT infrastructure. We will set up, prepare and configure the server components. Please consult [Preparation](/docs/preparation) first as a checklist and to understand how a HoneySens deployment could look like in practice. You should then be armed with a base system for the server, a domain name, (ideally) TLS certificate and key for said domain and a rough idea of where your server and sensors should be located.
 
-To get a new server up and running, start by downloading the latest distribution from the [Release Page](/releases/ce), then unpack the archive into any target directory. This results in the following directory structure (obviously, `<release>` should be replaced with the current release number):
+To get a new server up and running, start by downloading the latest distribution from the [Release Page](/releases), then unpack the archive into any target directory. This results in the following directory structure (obviously, `<release>` should be replaced with the current release number):
 ~~~
 $ tar xf HoneySens-CE-Server-<release>.tar.bz2
 $ cd HoneySens-Server-<release>
@@ -16,7 +16,7 @@ $ ls -l
 ~~~
 The single archive contains the server's Docker image that can now be registered with `docker load -i server-<release>.tar`.
 
-**Caution:** We haven't published official release HoneySens images on Docker Hub, yet (this might change at some point). Please don't confuse the distribution from the [Release Page](/releases/ce) with the images for the demo system (see [Tour](/docs/tour)), which are indeed [available](https://hub.docker.com/u/honeysens/) on Docker Hub. The latter images are **only** meant for demonstration purposes and should **never** be used in production!
+**Caution:** We haven't published official release HoneySens images on Docker Hub, yet (this might change at some point). Please don't confuse the distribution from the [Release Page](/releases) with the images for the demo system (see [Tour](/docs/tour)), which are indeed [available](https://hub.docker.com/u/honeysens/) on Docker Hub. The latter images are **only** meant for demonstration purposes and should **never** be used in production!
 
 ### Configuration
 At this point, take a look at `docker-compose.yml`. Upon service startup, that file will instruct Docker Compose which containers (called *"services"* here) to start and how they should be configured. For details on available options, consult the official [Compose file reference](https://docs.docker.com/compose/compose-file/). Currently, the HoneySens server defines two services: `honeysens` and `honeysens-registry`. Let's start with the former:
