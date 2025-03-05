@@ -5,13 +5,10 @@ weight: 4
 ---
 
 ### I. Information in accordance with Section 5 TMG
-
 Pascal Brückner \
-Bayreuther Str. 16 \
-01187 Dresden
+01309 Dresden
 
 ### II. Contact Information
-Telephone: +491623660551 \
 E-Mail: sylence (at) honeysens.org \
 Internet address: https://honeysens.org
 

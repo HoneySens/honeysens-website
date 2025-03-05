@@ -15,8 +15,7 @@ The following privacy policy is intended to inform you in particular about the t
 The party responsible for this website (the "controller") for purposes of data protection law is:
 
 Pascal Brückner \
-Bayreuther Straße 17 \
-01187 Dresden \
+01309 Dresden \
 Germany \
 E-Mail: sylence (at) honeysens.org
 
