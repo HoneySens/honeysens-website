@@ -12,7 +12,7 @@ Latest build: **20250305**
 
 New builds are created from time to time to address potential vulnerabilities in 3rd party dependencies. All builds of a single release are identical feature-wise.
 
-Click [here](https://github.com/HoneySens/honeysens/releases/download/2.8.0/HoneySens-Server-2.8.0-20250305.tar.gz) (SHA1 `18f0b45a6a0a9888feedea4fa39ca2ecd97c1507`) to download the server distribution, which contains a Docker Compose file as well as prebuilt project-specific images for deploying a HoneySens server. Follow the [installation docs](/docs/installation/) for further instructions. Some additional third party dependencies such as Redis or MySQL are not contained in this archive and will be downloaded from a public container registry automatically upon initiating the deployment.
+Click [here](https://github.com/HoneySens/honeysens/releases/download/2.8.0/HoneySens-Server-2.8.0-20250305.tar.gz) (SHA1 `18f0b45a6a0a9888feedea4fa39ca2ecd97c1507`) to download the server distribution, which contains a Docker Compose file as well as prebuilt project-specific images for deploying a HoneySens server. Follow the [installation](/docs/installation/) and [update](/docs/updates) documentation for further instructions. Some additional third party dependencies such as Redis or MySQL are not contained in this archive and will be downloaded from a public container registry automatically upon initiating the deployment.
 
 Alternatively, all images can be obtained automatically from public container registries. To go that route, download our template [docker-compose.yml](https://github.com/HoneySens/honeysens/releases/download/2.8.0/docker-compose.yml) and follow the *Configuration* and *Startup* steps in the [installation docs](/docs/installation/#configuration).
 
