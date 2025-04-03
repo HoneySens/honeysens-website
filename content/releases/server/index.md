@@ -1,22 +1,28 @@
 ---
 title: 'Server'
-date: 2025-03-04
+date: 2025-04-03
 weight: 1
 ---
 
 A HoneySens server is composed of multiple containerized services. These can be either downloaded here or from a public container registry.
 
 <!--more-->
-Latest release: **2.8.0**  
-Latest build: **20250305**
+Latest release: **2.9.0**  
+Latest build: **20250401**
 
 New builds are created from time to time to address potential vulnerabilities in 3rd party dependencies. All builds of a single release are identical feature-wise.
 
-Click [here](https://github.com/HoneySens/honeysens/releases/download/2.8.0/HoneySens-Server-2.8.0-20250305.tar.gz) (SHA1 `18f0b45a6a0a9888feedea4fa39ca2ecd97c1507`) to download the server distribution, which contains a Docker Compose file as well as prebuilt project-specific images for deploying a HoneySens server. Follow the [installation](/docs/installation/) and [update](/docs/updates) documentation for further instructions. Some additional third party dependencies such as Redis or MySQL are not contained in this archive and will be downloaded from a public container registry automatically upon initiating the deployment.
+Click [here](https://github.com/HoneySens/honeysens/releases/download/2.9.0/HoneySens-Server-2.9.0-20250401.tar.gz) (SHA1 `142b10d7b50a26a3d73040a5ca2ae758`) to download the server distribution, which contains a Docker Compose file as well as prebuilt project-specific images for deploying a HoneySens server. Follow the [installation](/docs/installation/) and [update](/docs/updates) documentation for further instructions, specifically the section about [version-specific update notes](/docs/updates#version-specific-update-notes). Some additional third party dependencies such as Redis or MySQL are not contained in this archive and will be downloaded from a public container registry automatically upon initiating the deployment.
 
-Alternatively, all images can be obtained automatically from public container registries. To go that route, download our template [docker-compose.yml](https://github.com/HoneySens/honeysens/releases/download/2.8.0/docker-compose.yml) and follow the *Configuration* and *Startup* steps in the [installation docs](/docs/installation/#configuration).
+Alternatively, all images can be obtained automatically from public container registries. To go that route, download our template [docker-compose.yml](https://github.com/HoneySens/honeysens/releases/download/2.9.0/docker-compose.yml) and follow the *Configuration* and *Startup* steps in the [installation docs](/docs/installation/#configuration).
 
 ### Changelog
+###### 2.9.0
+Released in March 2025
+* Users can now choose between English (default) and German as frontend language
+* System overview panel added to frontend
+* Fixed various frontend bugs
+
 ###### 2.8.0
 Released in December 2024
 * Backend migration to PHP8

@@ -1,6 +1,6 @@
 ---
 title: 'Updates'
-date: 2025-03-12
+date: 2025-03-26
 weight: 8
 ---
 
@@ -23,5 +23,9 @@ In comparison to sensors and services, servers are required to follow an increme
 * Start the server back up. On each startup, an update script will check whether changes to the database schema or data volumes are required and perform those automatically. Log into the web interface and verify in the `Info` section that the *Revision* and *Build ID* show the expected values.
 
 When running the server on top of an orchestrator such as Kubernetes, adapt that procedure accordingly.
+
+#### Version-specific update notes
+This section lists version-specific configuration changes that have to be performed manually when updating servers.
+* **2.9.0**: The `server` service in `docker-compose.yml` has been renamed to `web`, necessitating an update of service and image names.
 
 [[Top]](#top)

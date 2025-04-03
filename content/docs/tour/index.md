@@ -1,6 +1,6 @@
 ---
 title: 'Taking the tour'
-date: 2025-03-07
+date: 2025-04-03
 weight: 2
 ---
 
@@ -12,7 +12,7 @@ The demo environment is composed of several server containers and one "*dockeriz
 The demo is offered as a bunch of preconfigured Docker images which are published on the [GitHub Container registry](https://github.com/orgs/HoneySens/packages). To run it, any Linux distribution and a recent version of [Docker Engine](https://docs.docker.com/engine/) are required. Please make sure that those are installed, e.g. by verifying the output of `docker version`, which prints details about the installed Docker components.
 
 ### Preparing a Compose File
-Switch to an empty directory and download the current [demo Compose file](https://github.com/HoneySens/honeysens/releases/download/2.8.0/docker-compose-demo.yml), save and rename it to `docker-compose.yml`.
+Switch to an empty directory and download the current [demo Compose file](https://github.com/HoneySens/honeysens/releases/download/2.9.0/docker-compose-demo.yml), save and rename it to `docker-compose.yml`.
 
 That file defines a minimal preconfigured HoneySens deployment that consists of all services that constitute a server and a single dockerized sensor. In a real-world configuration, the sensor(s) would not run alongside the server, but would be deployed remotely within various production networks for monitoring. In this demo case, however, we deploy server and sensor together to illustrate their basic functionality. All images are preconfigured in a way that the sensor is already registered with the server and some basic honeypot services can be immediately deployed to it right after it starts. The `ports` directive of the server container forwards your local TCP port 443 (`HTTPS`) to the HoneySens web interface. In case that port is already taken by another application, feel free to change that value. Since all containers are run within a user-defined network (called `honeysens` here), they won't interfere with other applications or containers.
 

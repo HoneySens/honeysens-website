@@ -1,6 +1,6 @@
 ---
 title: 'Installation'
-date: 2025-03-07
+date: 2025-04-03
 weight: 4
 ---
 
@@ -12,10 +12,10 @@ $ tar xf HoneySens-Server-<release>.tar.bz2
 $ cd HoneySens-Server-<release>
 $ ls -l
 -rw-r--r-- 1 user user <size> <date> docker-compose.yml
--rw-r--r-- 1 user user <size> <date> INSTALL
+-rw-r--r-- 1 user user <size> <date> Readme.txt
 -rw-r--r-- 1 user user <size> <date> backup-<release>.tar
 -rw-r--r-- 1 user user <size> <date> tasks-<release>.tar
--rw-r--r-- 1 user user <size> <date> server-<release>.tar
+-rw-r--r-- 1 user user <size> <date> web-<release>.tar
 ~~~
 The tar archives contain Docker images for various server components and can be registered with `docker load -i <file>.tar`. To load all at once, use `for i in *.tar; do docker load -i $i; done`.
 
@@ -23,7 +23,7 @@ Some mandatory third-party dependencies such as Redis and MySQL will be automati
 
 As an alternative to downloading the release distribution and registering Docker images, it's also possible to take the shortcut of downloading just a template `docker-compose.yml` from the [Release Page](/releases/server/). It is configured to obtain *all* server components from public registries.
 
-In case deployment is planned with an orchestrator such as Kubernetes, refer to [the repository](https://github.com/HoneySens/honeysens/tree/master/server/utils/k8s) for a configuration template.
+In case deployment is planned with an orchestrator such as Kubernetes, refer to [the repository](https://github.com/HoneySens/honeysens/tree/master/server/deployment/k8s) for a configuration template.
 
 ### Configuration
 Start by examining the contents of `docker-compose.yml`. Upon service startup, that file will instruct Docker Compose which containers (called *"services"*) to start and how they should be configured. For details on available options, consult the official [Compose file reference](https://docs.docker.com/reference/compose-file/). Each HoneySens server is made up of the following components:
@@ -32,12 +32,12 @@ Start by examining the contents of `docker-compose.yml`. Upon service startup, t
 * **database**: SQL-based backend database, used by most other components.
 * **registry**: Container registry, distributes and service Docker images to sensors. The registry is managed via the web frontend.
 * **tasks**: Services an internal task queue handling long-running and background tasks.
-* **server**: Serves both a REST API and web frontend, used by both sensors and users.
+* **web**: Serves both a REST API and web frontend, used by both sensors and users.
 
-Let's discuss the `server` service first:
+Let's discuss the `web` service first:
 ~~~
-server:
-  image: honeysens/server:<release>
+web:
+  image: honeysens/web:<release>
   restart: unless-stopped
   ports:
     - "80:8080"
@@ -57,18 +57,18 @@ server:
     #- <path to server.chain.crt>:/srv/tls/server.crt
     #- <path to server.key>:/srv/tls/server.key
 ~~~
-The `environment` variables should be reviewed and adjusted as necessary. While most defaults can be kept, **always** change the database credentials `HS_DB_PASSWORD` and `HS_DB_ROOT_PASSWORD` to different unique password strings and save the DNS domain name your server will use in `DOMAIN`. In the `environment` block of the `database` service, make sure `MYSQL_ROOT_PASSWORD` matches `HS_DB_ROOT_PASSWORD` and `MYSQL_PASSWORD` matches `HS_DB_PASSWORD`. In a similar vein, synchronize `HS_DB_PASSWORD` of the `backup`, `server` and `tasks` services.
+The `environment` variables should be reviewed and adjusted as necessary. While most defaults can be kept, **always** change the database credentials `HS_DB_PASSWORD` and `HS_DB_ROOT_PASSWORD` to different unique password strings and save the DNS domain name your server will use in `DOMAIN`. In the `environment` block of the `database` service, make sure `MYSQL_ROOT_PASSWORD` matches `HS_DB_ROOT_PASSWORD` and `MYSQL_PASSWORD` matches `HS_DB_PASSWORD`. In a similar vein, synchronize `HS_DB_PASSWORD` of the `backup`, `web` and `tasks` services.
 
-According to the `volumes` section, a data volume will be mounted into the `server` container at `/opt/HoneySens/data`. The label `honeysens_data` refers to a [named volume](https://docs.docker.com/engine/storage/volumes/#named-and-anonymous-volumes) as defined in the `volumes` section further below. Named volumes generally have the drawback that their contents are stored somewhere in `/var/lib/docker` (the exact path is Linux distribution-dependent). However, many server operators prefer to use a specific predetermined location on the host system instead, such as `/srv/honeysens/data`. To accomplish that, modify the volume statement accordingly, e.g.
+According to the `volumes` section, a data volume will be mounted into the `web` container at `/opt/HoneySens/data`. The label `honeysens_data` refers to a [named volume](https://docs.docker.com/engine/storage/volumes/#named-and-anonymous-volumes) as defined in the `volumes` section further below. Named volumes generally have the drawback that their contents are stored somewhere in `/var/lib/docker` (the exact path is Linux distribution-dependent). However, many server operators prefer to use a specific predetermined location on the host system instead, such as `/srv/honeysens/data`. To accomplish that, modify the volume statement accordingly, e.g.
 ~~~
   volumes:
     - /srv/honeysens/data:/opt/HoneySens/data
 ~~~
 When replacing the `honeysens_data` volume like that, supply *the same path* also to the `backup` and the `tasks` services. The remaining volumes `honeysens_backup`, `honeysens_db` and `honeysens_registry` should be treated similarly.
 
-**Caution:** When modifying volume blocks, **only ever** modify the part ahead of the colon. The second part after that refers to static paths within the server container and shouldn't be touched.
+**Caution:** When modifying volume blocks, **only ever** modify the part ahead of the colon. The second part after that refers to static paths within the container and shouldn't be touched.
 
-As mentioned in [Preparation](/docs/preparation/), we strongly recommend to supply your own TLS key and certificate pair for the domain the server is supposed to serve. To mount those into the server container, they can be specified as volume mounts in a similar manner. Simply uncomment and adjust the two additional volume lines in the Compose template, such as
+As mentioned in [Preparation](/docs/preparation/), we strongly recommend to supply your own TLS key and certificate pair for the domain the server is supposed to serve. To mount those into the web container, they can be specified as volume mounts in a similar manner. Simply uncomment and adjust the two additional volume lines in the Compose template, such as
 ~~~
     - /srv/honeysens/https.chain.crt:/srv/tls/server.crt
     - /srv/honeysens/https.key:/srv/tls/server.key
@@ -76,10 +76,10 @@ As mentioned in [Preparation](/docs/preparation/), we strongly recommend to supp
 The remaining default configuration will open TCP ports 80 (HTTP) and 443 (HTTPS), whereas the HTTP port simply redirects to HTTPS. If you're familiar with Compose files, feel free to further adjust the supplied template to your needs.
 
 #### Optional environment variables
-The remaining variables of the `server` service are defined as follows:
+The remaining variables of the `web` service are defined as follows:
 * `ACCESS_LOG`: If set to `true`, all HTTP(S) requests sent to the web frontend or API will be logged on the container's stdout.
 * `API_LOG`: If set to `true`, all API actions will be logged accompanied by which users performed then and when for auditing purposes. The API log can be accessed only by admin users via a separate *Logging* component in the frontend (sidebar).
-* `PLAIN_HTTP_API`: If set to `true`, the container will serve the HTTP API and frontend via unencrypted HTTP on port TCP 8080, which is forwarded to the host on TCP port 80 by default (see `ports` section). This might be required in case there's another TLS-terminating proxy in front of the server container. If set to `false`, HTTP requests to TCP port 80 will be redirected to HTTPS. The server container will *always* serve frontend and API via HTTPS on TCP port 8443, regardless of this setting.
+* `PLAIN_HTTP_API`: If set to `true`, the container will serve the HTTP API and frontend via unencrypted HTTP on port TCP 8080, which is forwarded to the host on TCP port 80 by default (see `ports` section). This might be required in case there's another TLS-terminating proxy in front of the web container. If set to `false`, HTTP requests to TCP port 80 will be redirected to HTTPS. The web container will *always* serve frontend and API via HTTPS on TCP port 8443, regardless of this setting.
 * `TLS_FORCE_12`: If set to `true`, the container will enforce the usage of TLS 1.2 or newer for HTTPS connections.
 
 The `tasks` container exposes a `HS_WORKER_COUNT` setting that defaults to `auto`. It specifies the number of spare worker processes to spawn to handle incoming requests, such as exporting events to CSV or generating sensor configuration archives. The higher this value, the more requests can be processed in parallel. When set to `auto`, the resulting worker count will be a multiple of the number of CPU cores. On systems with a high CPU core count, the resulting hundreds of worker processes might be undesired. In that case, set `HS_WORKER_COUNT` to a fixed number of processes (`4` or `8` should be sufficient for most use cases).
@@ -96,7 +96,7 @@ After the configuration file was adjusted accordingly, the server can be launche
 
 ![install-greeting](/images/install-greeting.png)
 
-Follow the instructions on screen. You'll have to provide credentials for the administrative account and the domain name of the server. The latter should be identical to the *Common Name* of the supplied TLS certificate, in case of a self-signed certificate this will default to the `DOMAIN` environment variable of the `server` service. For the last step you then have to supply a group name for the initial group of users that will be created on your behalf (that name can be changed later, though).
+Follow the instructions on screen. You'll have to provide credentials for the administrative account and the domain name of the server. The latter should be identical to the *Common Name* of the supplied TLS certificate, in case of a self-signed certificate this will default to the `DOMAIN` environment variable of the `web` service. For the last step you then have to supply a group name for the initial group of users that will be created on your behalf (that name can be changed later, though).
 
 After successful completion of the setup procedure, the login screen will be shown:
 
