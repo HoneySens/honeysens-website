@@ -9,12 +9,16 @@ Sensor firmware archives can be downloaded here, used for initial sensor deploym
 <!--more-->
 | Platform | Download                                                              | SHA1 checksum                             |
 |:---------|:----------------------------------------------------------------------|:------------------------------------------|
-| BeagleBone Black | [2.9.0](https://github.com/HoneySens/honeysens/releases/download/2.9.0/HoneySens-Firmware-BBB-4gb-2.9.0.tar.gz) | `06c50996caa174091020bf9ed9ffe302` |
-| Docker | [2.9.0](https://github.com/HoneySens/honeysens/releases/download/2.9.0/HoneySens-Firmware-dockerx86-2.9.0.tar.gz) | `f123f5dece6f76dac9bfa98c24c48f12` |
+| BeagleBone Black | [2.9.1](https://github.com/HoneySens/honeysens/releases/download/2.9.1-fw/HoneySens-Firmware-BBB-4gb-2.9.1.tar.gz) | `99fcf76a92b7f47af4d8945b45cef72ad9420536` |
+| Docker | [2.9.1](https://github.com/HoneySens/honeysens/releases/download/2.9.1-fw/HoneySens-Firmware-dockerx86-2.9.1.tar.gz) | `8feddcd545bfdc272078790629fde8d4265742a8` |
 
 Refer to the [sensor deployment](/docs/sensors/) documentation for instructions on how to deal with downloaded firmware files.
 
 ### Changelog
+###### 2.9.1
+Released in September 2025
+* Improved certificate management and enhanced logging capabilities
+
 ###### 2.9.0
 Released in March 2025
 * Base system updated
