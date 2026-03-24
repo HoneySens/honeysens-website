@@ -1,6 +1,6 @@
 ---
 title: 'Installation'
-date: 2025-04-03
+date: 2026-03-24
 weight: 4
 ---
 
@@ -53,7 +53,7 @@ web:
     - PLAIN_HTTP_API=false
     - TLS_FORCE_12=false
   volumes:
-    - honeysens_data:/opt/HoneySens/data
+    - honeysens_data:/opt/HoneySens/data:z
     #- <path to server.chain.crt>:/srv/tls/server.crt
     #- <path to server.key>:/srv/tls/server.key
 ~~~
@@ -62,18 +62,27 @@ The `environment` variables should be reviewed and adjusted as necessary. While 
 According to the `volumes` section, a data volume will be mounted into the `web` container at `/opt/HoneySens/data`. The label `honeysens_data` refers to a [named volume](https://docs.docker.com/engine/storage/volumes/#named-and-anonymous-volumes) as defined in the `volumes` section further below. Named volumes generally have the drawback that their contents are stored somewhere in `/var/lib/docker` (the exact path is Linux distribution-dependent). However, many server operators prefer to use a specific predetermined location on the host system instead, such as `/srv/honeysens/data`. To accomplish that, modify the volume statement accordingly, e.g.
 ~~~
   volumes:
-    - /srv/honeysens/data:/opt/HoneySens/data
+    - /srv/honeysens/data:/opt/HoneySens/data:z
 ~~~
 When replacing the `honeysens_data` volume like that, supply *the same path* also to the `backup` and the `tasks` services. The remaining volumes `honeysens_backup`, `honeysens_db` and `honeysens_registry` should be treated similarly.
 
-**Caution:** When modifying volume blocks, **only ever** modify the part ahead of the colon. The second part after that refers to static paths within the container and shouldn't be touched.
+**Caution:** When modifying volume blocks, **only ever** modify the part ahead of the colon, which is the host path. The second part after that refers to static paths within the container and shouldn't be touched.
 
-As mentioned in [Preparation](/docs/preparation/), we strongly recommend to supply your own TLS key and certificate pair for the domain the server is supposed to serve. To mount those into the web container, they can be specified as volume mounts in a similar manner. Simply uncomment and adjust the two additional volume lines in the Compose template, such as
+To prevent potential permission issues, it's recommended to create the mounted directories manually with proper permissions before starting the containers. The containers access the volumes with `uid=1000` and `gid=1000`, except the database, which has both IDs set to `999`. That's only for backwards compatibiltiy, though. For new deployments, feel free to change the `user: "999:999"` setting in `docker-compose.yml` to `1000:1000`. Continue to create all locally mounted directories, e.g. via
+
+```
+$ mkdir -p /srv/honeysens/{backup,data,db,registry}
+$ chown -R 1000:1000 /srv/honeysens/{backup,data,db,registry}
+$ chown 999:999 /srv/honeysens/db  # in case the database runs as 999:999
+```
+
+
+As mentioned in [Preparation](/docs/preparation/), we strongly recommend to supply your own TLS key and certificate pair for the domain the server is supposed to serve. To mount those into the web container, they can be specified as volume mounts in a similar manner. Simply uncomment and adjust the additional volume lines in the Compose template, such as
 ~~~
-    - /srv/honeysens/https.chain.crt:/srv/tls/server.crt
-    - /srv/honeysens/https.key:/srv/tls/server.key
+    - /srv/honeysens/https.chain.crt:/srv/tls/server.crt:z
+    - /srv/honeysens/https.key:/srv/tls/server.key:z
 ~~~
-The remaining default configuration will open TCP ports 80 (HTTP) and 443 (HTTPS), whereas the HTTP port simply redirects to HTTPS. If you're familiar with Compose files, feel free to further adjust the supplied template to your needs.
+The default configuration will open TCP ports 80 (HTTP) and 443 (HTTPS), whereas the HTTP port simply redirects to HTTPS. If you're familiar with Compose files, feel free to further adjust the supplied template to your needs.
 
 #### Optional environment variables
 The remaining variables of the `web` service are defined as follows:
